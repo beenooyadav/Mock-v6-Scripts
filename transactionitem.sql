@@ -1,0 +1,65 @@
+CREATE EXTERNAL TABLE `udm_130_transactionitem`(
+  `id` string COMMENT 'from deserializer', 
+  `tenantid` int COMMENT 'from deserializer', 
+  `sourcesystemid` string COMMENT 'from deserializer', 
+  `sourcetransactionitemnumber` string COMMENT 'from deserializer', 
+  `transactionid` string COMMENT 'from deserializer', 
+  `sourcetransactionnumber` string COMMENT 'from deserializer', 
+  `sourceorganizationnumber` string COMMENT 'from deserializer', 
+  `organizationid` string COMMENT 'from deserializer', 
+  `sourceproductnumber` string COMMENT 'from deserializer', 
+  `productid` string COMMENT 'from deserializer', 
+  `type` string COMMENT 'from deserializer', 
+  `subtype` string COMMENT 'from deserializer', 
+  `shipdate` bigint COMMENT 'from deserializer', 
+  `invoicedate` bigint COMMENT 'from deserializer', 
+  `quantity` int COMMENT 'from deserializer', 
+  `weight` decimal(18,4) COMMENT 'from deserializer', 
+  `volume` decimal(18,4) COMMENT 'from deserializer', 
+  `listprice` decimal(18,4) COMMENT 'from deserializer', 
+  `salerevenue` decimal(18,4) COMMENT 'from deserializer', 
+  `discount` decimal(18,4) COMMENT 'from deserializer', 
+  `costbasis` decimal(18,4) COMMENT 'from deserializer', 
+  `tax` decimal(18,4) COMMENT 'from deserializer', 
+  `shippingrevenue` decimal(18,4) COMMENT 'from deserializer', 
+  `shippingcost` decimal(18,4) COMMENT 'from deserializer', 
+  `shippingdiscount` decimal(18,4) COMMENT 'from deserializer', 
+  `otherrevenue` decimal(18,4) COMMENT 'from deserializer', 
+  `othercost` decimal(18,4) COMMENT 'from deserializer', 
+  `currency` string COMMENT 'from deserializer', 
+  `userclient` string COMMENT 'from deserializer', 
+  `bundlenumber` string COMMENT 'from deserializer', 
+  `sourcesubscriptionnumber` string COMMENT 'from deserializer', 
+  `subscriptionid` string COMMENT 'from deserializer', 
+  `gift` boolean COMMENT 'from deserializer', 
+  `datecreated` bigint COMMENT 'from deserializer', 
+  `datemodified` bigint COMMENT 'from deserializer', 
+  `deleteflag` boolean COMMENT 'from deserializer', 
+  `rowcreated` bigint COMMENT 'from deserializer', 
+  `rowmodified` bigint COMMENT 'from deserializer', 
+  `batch` string COMMENT 'from deserializer', 
+  `source` string COMMENT 'from deserializer', 
+  `realtimerequestnumber` string COMMENT 'from deserializer')
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.hbase.SaltedHBaseSerDe' 
+STORED BY 
+  'org.apache.hadoop.hive.hbase.SaltedHBaseStorageHandler' 
+WITH SERDEPROPERTIES ( 
+  'hbase.columns.mapping'=':key,f:s1,f:s2,f:s3,f:s4,f:s5,f:s6,f:s7,f:s8,f:s9,f:s10,f:s11,f:s12,f:s13,f:s14,f:s15,f:s16,f:s17,f:s18,f:s19,f:s20,f:s21,f:s22,f:s23,f:s24,f:s25,f:s26,f:s27,f:s28,f:s29,f:s30,f:s31,f:s32,f:s33,f:s34,f:s35,f:s36,f:s37,f:s38,f:s39,f:s40', 
+  'serialization.format'='1')
+LOCATION
+  'hdfs://agiloneCluster:8020/user/hive/warehouse/tenant_130.db/udm_130_transactionitem'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'agilone.batch'='1', 
+  'agilone.batch.end'='9223372036854775807', 
+  'agilone.partition'='40', 
+  'agilone.ssid'='0', 
+  'agilone.table'='547458160', 
+  'agilone.tenant'='130', 
+  'hbase.table.name'='pod_GeorgiaPacific', 
+  'numFiles'='0', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'totalSize'='0', 
+  'transient_lastDdlTime'='1519949575')
